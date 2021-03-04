@@ -7,28 +7,28 @@
 # Required file permissions:
 `sudo chown www-data:www-data -R productionfolder/`
 
-#Apache conf files are available repo
+# Apache conf files are available repo
 
 
-#Ubuntu commands for apache and WSGI congiruration
+# Ubuntu commands for apache and WSGI congiruration
 `sudo vim /etc/apache2/site-available/mynew.conf`
 
-Disable unused site like default site using:
+## Disable unused site like default site using:
 `sudo a2dissite 000-default.conf`
 
-Check conf file syntax using:
+## Check conf file syntax using:
 `sudo apache2ctl configtest`  # it will return syntax OK, if there are no erros
 
-Enable required sites using:
+## Enable required sites using:
 `sudo a2ensite mynew.conf`
 
-Reload apache2 service using:
+## Reload apache2 service using:
 `sudo apache2ctl restart`
 
-Run the below command to know the ips to access the site: 
+## Run the below command to know the ips to access the site: 
 `hostname -I`
 
-To map ip to hostname add entries in below file:
+## To map ip to hostname add entries in below file:
 vim /etc/hosts
 example:
 >>cat /etc/hosts
