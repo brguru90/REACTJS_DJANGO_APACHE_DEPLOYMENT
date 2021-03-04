@@ -7,7 +7,7 @@
 ### Required file permissions:
 `sudo chown www-data:www-data -R productionfolder/`
 
-### Apache conf files are available repo:
+### Apache conf file is available in repo:
 ###### /etc/apache2/site-available/mynew.conf
 
 ```
