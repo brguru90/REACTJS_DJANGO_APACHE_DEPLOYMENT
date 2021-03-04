@@ -1,8 +1,7 @@
 # REACTJS_DJANGO_APACHE_DEPLOYMENT STEPS:
 
 # React production build
-`cd reactappfolder`
-
+`cd reactappfolder` <br/>
 `npm run build`
 
 # Required file permissions:
@@ -34,6 +33,6 @@ vim /etc/hosts
 
 example:
 cat /etc/hosts <br/>
-`127.0.0.1	localhost
-129.0.1.1	ko
+`127.0.0.1	localhost <br/>
+129.0.1.1	ko <br/>
 131.0.1.1	mynewsite.com`
