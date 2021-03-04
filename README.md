@@ -33,10 +33,7 @@
 vim /etc/hosts
 
 example:
->>cat /etc/hosts
-
-127.0.0.1	localhost
-
+cat /etc/hosts <br/>
+`127.0.0.1	localhost
 129.0.1.1	ko
-
-131.0.1.1	mynewsite.com
+131.0.1.1	mynewsite.com`
