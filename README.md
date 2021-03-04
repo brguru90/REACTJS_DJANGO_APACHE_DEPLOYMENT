@@ -7,7 +7,62 @@
 # Required file permissions:
 `sudo chown www-data:www-data -R productionfolder/`
 
-# Apache conf files are available repo
+# Apache conf files are available repo:
+###### /etc/apache2/site-available/mynew.conf
+
+```
+<VirtualHost *:9876>
+	#ServerName http://avpathak1-lnx.cisco.com:8000
+	ServerName mysite.com
+	ServerAlias localhost
+
+	# SSLEngine on
+	# SSLCertificateFile      /etc/ssl/certs/apache-selfsigned.crt
+	# SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+	#SSLCACertificateFile /var/www/ssl/AAACertificateServices.crt
+
+	# ProxyPreserveHost On
+	# SSLProxyEngine On
+	# SSLProxyCheckPeerCN on
+	# SSLProxyCheckPeerExpire on
+
+	# ProxyPass /app_fix http://127.0.0.1:8080/
+	# ProxyPassReverse /app_fix http://127.0.0.1:8080/
+
+	# ProxyPass /fix_server http://127.0.0.1:8080/fix_server
+	# ProxyPassReverse /fix_server http://127.0.0.1:8080/fix_server
+
+	LogLevel info
+	WSGIScriptAlias /api /home/ko/djangoserver/apachereactdjango/djangoserver/djangoserver/wsgi.py
+	WSGIDaemonProcess myprocessname processes=5 threads=10 display-name=%{GROUP} python-path=/home/ko/djangoserver/apachereactdjango/djangoserver/djangoserver  python-home=/home/ko/djangoserver/djangoser
+	WSGIProcessGroup myprocessname
+	WSGIApplicationGroup %{GLOBAL}
+	
+	#path to manage.py(django project folder)
+	<Directory /home/ko/djangoserver/apachereactdjango>
+		AllowOverride all
+		Options +Indexes
+		Require all granted
+		Allow from all
+	</Directory>
+	
+	
+	ErrorLog /home/ko/djangoserver/error.log
+	CustomLog /home/ko/djangoserver/access.log combined
+
+	DirectoryIndex index.html
+	# ErrorDocument 400 https://localhost:8888/
+	# Static files location (_example: react build folder path)
+	DocumentRoot /home/ko/djangoserver/apachereactdjango/build/
+
+
+	# Django built static files (templates) folder
+	# Alias /djangostatic /var/www/docker_installer/frontend/build/django/static 
+	Protocols  h2 h2c  http/1.1
+
+</VirtualHost>
+
+```
 
 
 # Ubuntu commands for apache and WSGI congiruration
@@ -58,6 +113,10 @@ Listen 80
 .
 .
 
+## In django's wsgi.py file append BASE_DIR(project_dir) to sys.path to avoid module import error:
+```
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
 
-
+```
 
