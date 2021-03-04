@@ -37,7 +37,7 @@ cat /etc/hosts <br/>
 `129.0.1.1	ko` <br/>
 `131.0.1.1	mynewsite.com`
 
-##To change port from default 80 to other modify ports.conf
+## To change port from default 80 to other modify ports.conf
 `cat /etc/apache2/ports.conf`<br/>
 
 ###### If you just change the port or add more ports here, you will likely also
@@ -54,6 +54,6 @@ Listen 80
 	Listen 443
 </IfModule>
 
-#..vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+#⋅⋅⋅vim: syntax=apache ts=4 sw=4 sts=4 sr noet
 
 
