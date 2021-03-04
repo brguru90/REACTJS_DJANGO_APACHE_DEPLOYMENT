@@ -2,6 +2,7 @@
 
 # React production build
 `cd reactappfolder`
+
 `npm run build`
 
 # Required file permissions:
@@ -30,8 +31,12 @@
 
 ## To map ip to hostname add entries in below file:
 vim /etc/hosts
+
 example:
 >>cat /etc/hosts
+
 127.0.0.1	localhost
-127.0.1.1	ko
-127.0.1.1	mynewsite.com
+
+129.0.1.1	ko
+
+131.0.1.1	mynewsite.com
