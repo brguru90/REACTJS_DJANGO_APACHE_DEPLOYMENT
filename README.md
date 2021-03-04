@@ -98,7 +98,7 @@ cat /etc/hosts <br/>
 ###### If you just change the port or add more ports here, you will likely also
 ###### have to change the VirtualHost statement in
 ###### /etc/apache2/sites-enabled/000-default.conf
-
+```
 Listen 80
 
 <IfModule ssl_module>
@@ -112,7 +112,7 @@ Listen 80
 .
 .
 .
-
+```
 ## In django's wsgi.py file append BASE_DIR(project_dir) to sys.path to avoid module import error:
 ```
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
