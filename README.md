@@ -85,7 +85,7 @@
 ### Reload apache2 service using:
 `sudo apache2ctl restart` or `sudo systemctl reload apache2`
 
-## Run the below command to know the ips to access the site: 
+### Run the below command to know the ips to access the site: 
 `hostname -I`
 
 ### To map ip to hostname add entries in below file:
@@ -105,6 +105,8 @@ cat /etc/hosts <br/>
 ###### /etc/apache2/sites-enabled/000-default.conf
 ```
 Listen 80
+#ADDED LISTEN 9876 LINE TO REGISTER 9876 PORT FOR VIRTUAL HOST, AND USED THE SAME PORT IN mynew.conf FILE
+Listen 9876
 
 <IfModule ssl_module>
 	Listen 443
