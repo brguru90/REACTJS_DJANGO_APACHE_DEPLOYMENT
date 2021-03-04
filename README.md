@@ -34,11 +34,11 @@
 
 	LogLevel info
 	WSGIScriptAlias /api /home/ko/djangoserver/apachereactdjango/djangoserver/djangoserver/wsgi.py
-	WSGIDaemonProcess myprocessname processes=5 threads=10 display-name=%{GROUP} python-path=/home/ko/djangoserver/apachereactdjango/djangoserver/djangoserver  python-home=/home/ko/djangoserver/djangoser
+	WSGIDaemonProcess myprocessname processes=5 threads=10 display-name=%{GROUP} python-home=/home/ko/djangoserver/djangoser
 	WSGIProcessGroup myprocessname
 	WSGIApplicationGroup %{GLOBAL}
 	
-	#path to manage.py(django project folder)
+	#path to parent folder where both client and server dirs are present(this parent folder must have all necessary permissions required by apache)
 	<Directory /home/ko/djangoserver/apachereactdjango>
 		AllowOverride all
 		Options +Indexes
@@ -66,9 +66,14 @@
 
 
 # Ubuntu commands for apache and WSGI congiruration
+
+## Install apache2 and WSGI in Ubuntu
+`sudo apt-get install python3-pip apache2 libapache2-mod-wsgi-py3`
+
+## Create a new apache conf file for your site
 `sudo vim /etc/apache2/site-available/mynew.conf`
 
-## Disable unused site like default site using:
+## Disable unused site ex: default site using:
 `sudo a2dissite 000-default.conf`
 
 ## Check conf file syntax using:
@@ -78,7 +83,7 @@
 `sudo a2ensite mynew.conf`
 
 ## Reload apache2 service using:
-`sudo apache2ctl restart`
+`sudo apache2ctl restart` or `sudo systemctl reload apache2`
 
 ## Run the below command to know the ips to access the site: 
 `hostname -I`
