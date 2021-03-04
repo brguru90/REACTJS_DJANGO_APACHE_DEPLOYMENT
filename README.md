@@ -36,3 +36,24 @@ cat /etc/hosts <br/>
 `127.0.0.1	localhost` <br/>
 `129.0.1.1	ko` <br/>
 `131.0.1.1	mynewsite.com`
+
+##To change port from default 80 to other modify ports.conf
+`cat /etc/apache2/ports.conf`<br/>
+
+###### If you just change the port or add more ports here, you will likely also
+###### have to change the VirtualHost statement in
+###### /etc/apache2/sites-enabled/000-default.conf
+
+Listen 80
+
+<IfModule ssl_module>
+	Listen 443
+</IfModule>
+
+<IfModule mod_gnutls.c>
+	Listen 443
+</IfModule>
+
+#..vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+
